@@ -6,3 +6,7 @@ Sistema de Dictamenes Medicos Este proyecto desarrolla un sistema para la digita
 https://docs.google.com/document/d/1OuBaR7wZchlCOk3ha9ioJ7qytHk2GbkKHMuOl09oPfg/edit?usp=sharing
 - miro
 https://miro.com/app/board/uXjVIMEqXvE=/?share_link_id=546808981030
+
+
+## Integrantes:
+- Fernando Jesús Núñez Valdez
