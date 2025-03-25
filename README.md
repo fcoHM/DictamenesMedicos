@@ -11,3 +11,4 @@ https://miro.com/app/board/uXjVIMEqXvE=/?share_link_id=546808981030
 ## Integrantes:
 - Fernando Jesús Núñez Valdez
 - Daniel Antonio Fernandez Mendoza
+- Ian Carlos Hernández Vidaña
