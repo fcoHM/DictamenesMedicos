@@ -12,3 +12,4 @@ https://miro.com/app/board/uXjVIMEqXvE=/?share_link_id=546808981030
 - Fernando Jesús Núñez Valdez
 - Daniel Antonio Fernandez Mendoza
 - Ian Carlos Hernández Vidaña
+- Jose Francisco Hurtado Muro

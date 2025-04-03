@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{147A588D-8B6E-40AC-A065-62B7B788848E}|DicatamenesMedicos_program\\DicatamenesMedicos_program.csproj|solutionrelative:dicatamenesmedicos_program\\view\\singup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{147A588D-8B6E-40AC-A065-62B7B788848E}|DicatamenesMedicos_program\\DicatamenesMedicos_program.csproj|c:\\users\\josef\\onedrive\\documentos\\mis_docs\\net-proyecto\\dictamenesmedicos\\dicatamenesmedicos_program\\dicatamenesmedicos_program\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{147A588D-8B6E-40AC-A065-62B7B788848E}|DicatamenesMedicos_program\\DicatamenesMedicos_program.csproj|C:\\Users\\Josef\\OneDrive\\Documentos\\Mis_docs\\NET-PROYECTO\\DictamenesMedicos\\DicatamenesMedicos_program\\dicatamenesmedicos_program\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{147A588D-8B6E-40AC-A065-62B7B788848E}|DicatamenesMedicos_program\\DicatamenesMedicos_program.csproj|solutionrelative:dicatamenesmedicos_program\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -34,8 +34,7 @@
               "RelativeToolTip": "DicatamenesMedicos_program\\View\\LoginView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-03-31T15:51:08.434Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -59,8 +58,7 @@
               "RelativeToolTip": "DicatamenesMedicos_program\\View\\LoginView.xaml.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAowBsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T22:31:46.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T22:31:46.622Z"
             }
           ]
         }
