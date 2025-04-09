@@ -1,0 +1,248 @@
+﻿<Window x:Class="DictamenesMedicos.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DictamenesMedicos.View"
+        mc:Ignorable="d"
+        Title="LoginView" Height="450" Width="800"
+        
+            WindowStyle="None"
+    WindowStartupLocation="CenterScreen"
+    Background="Transparent"
+    AllowsTransparency="True">
+
+    <Border CornerRadius="0">
+        <!--Para Insertar una imagen-->
+        <!--<Border.Background >
+            <ImageBrush ImageSource="/Images/imagen.png" Stretch="None" >
+                --><!--<ImageBrush ImageSource="/Images/SXSG_sonic.png" Stretch="None" >--><!--
+
+            </ImageBrush>
+        </Border.Background>-->
+        
+        
+        <Border CornerRadius="0" BorderThickness="2" Opacity="1" >
+
+            <Border.Background>
+                <!--Otros colores #008C8C #00B8B8-->
+                <SolidColorBrush Color="#F5F5F5" />
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30">
+
+                    </RowDefinition>
+
+                    <RowDefinition Height="*">
+
+                    </RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition>
+
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="25">
+
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="25">
+
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="5">
+
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="LOG IN"
+                           Foreground="#0e1111"
+                           FontSize="15"
+                           FontFamily="Monserrat"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0">
+
+                    </TextBlock>
+
+                    <!--Boton para minimizar-->
+                    <Button x:Name="btnMinimizar"
+                        BorderThickness="0"
+                        Content="-"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Click="btnMinimizar_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#555555">
+
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="LightPink">
+                                            <!--278BEF-->
+
+                                        </Setter>
+
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center">
+                                    </ContentPresenter>
+
+                                </Border>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <!--Boton para cerrar-->
+                    <Button x:Name="btnClose"
+                        BorderThickness="0"
+                        Content="x"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Click="btnClose_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#555555">
+
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="LightCoral">
+                                            <!--278BEF-->
+
+                                        </Setter>
+
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center">
+                                    </ContentPresenter>
+
+                                </Border>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+
+                </Grid>
+                <StackPanel Width="220"
+            Grid.Row="1"
+            Orientation="Vertical"
+            Margin="0,35,0,0">
+                    <Image Source="/Images/logoTemp.png"
+           Width="100"
+           Height="100">
+
+                    </Image>
+
+
+                   <TextBlock Text="Sistema de Dictámenes Médicos"
+               Foreground="Black"
+               FontSize="20"
+               FontWeight="Medium"
+               FontFamily="Montserrat"
+               HorizontalAlignment="Center">
+
+                    </TextBlock>
+
+                    <TextBlock Text="Fernando"
+               Foreground="LightCyan"
+               FontSize="12"
+               FontWeight="Medium"
+               FontFamily="Montserrat"
+               TextWrapping="Wrap"
+               TextAlignment="Center"
+               Margin="0,5,0,0">
+
+                    </TextBlock>
+                    <TextBlock Text="Username"
+               Foreground="LightGray"
+               FontWeight="Medium"
+               FontFamily="Montserrat"
+               Margin="0,35,0,0">
+
+                    </TextBlock>
+
+                    <TextBox x:Name="txtUser"
+               Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+               FontFamily="Montserrat"
+               FontSize="13"
+               FontWeight="Medium"
+               Foreground="White"
+               Height="28"
+               CaretBrush="LightGray"
+               BorderBrush="DarkGray"
+               BorderThickness="0,0,0,2"
+               VerticalAlignment="Center"
+               Margin="0,5,0,0"
+               Padding="20,0,0,0">
+
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="/Images/user-icon.png"
+                        Stretch="None"
+                        AlignmentX="Left">
+
+                            </ImageBrush>
+
+                        </TextBox.Background>
+
+                    </TextBox>
+
+                    <TextBlock Text="Password"
+               Foreground="Black"
+               FontSize="13"
+               FontWeight="Medium"
+               FontFamily="Montserrat"
+               Margin="0,15,0,0">
+
+                    </TextBlock>
+
+                    <!--<customcontrols:BindablePasswordBoxx
+        Password="{Binding Password, 
+        Mode = TwoWay,
+        UpdateSourceTrigger = PropertyChanged}"
+        Height="28"
+        Margin="0,5,0,0">
+       
+    </customcontrols:BindablePasswordBoxx>-->
+
+                    <!--<customcontrols:BindablePasswordBoxx
+        Password="{Binding Password,
+        Mode =TwoWay,
+        UpdateSourceTrigger=PropertyChanged}"
+        Height="28"
+        Margin="0,5,0,0">
+
+                    </customcontrols:BindablePasswordBoxx>-->
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+</Window>
