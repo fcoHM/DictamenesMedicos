@@ -64,6 +64,9 @@
     <Compile Include="View\singUp.xaml.cs">
       <DependentUpon>singUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SolicitudCita.xaml.cs">
+      <DependentUpon>SolicitudCita.xaml</DependentUpon>
+    </Compile>
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\singUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitudCita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
