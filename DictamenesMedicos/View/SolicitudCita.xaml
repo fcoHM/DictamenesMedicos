@@ -178,7 +178,7 @@
                                 <!-- filas con tamaño auto ajustables al contenido -->
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
-
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
                             <!-- contenido del panel lateral, para agregar algo nuevo crear una nueva fila  -->
@@ -197,6 +197,20 @@
                                Margin="0,10,0,10"
                                HorizontalAlignment="Center"/>
 
+                            <Button Content="Ver perfil" Width="150" Height="40" Grid.Row="2" FontFamily="Montserrat" Background="LightGray" FontSize="14" Cursor="Hand">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}" 
+                                            CornerRadius="15">  
+                                            <!-- Aquí defines cuánto de redondeado -->
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
 
                         </Grid>
 
@@ -207,13 +221,100 @@
 
                     <!-- Contenido principal -->
                     <Grid Background="White" Grid.Column="1">
-                        <TextBlock Text="Contenido Principal(se acomoda a tu necesidad)"
-                                   Foreground="Black"
-                                   FontSize="16"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                       
+                        
+                        <!--sub-grid para contenido principal-->
+                        <Grid Margin="15" Background="LightGray">
 
-                        <!--ccontenido principal-->
+                            <Grid.RowDefinitions>
+                                <!-- filas con tamaño auto ajustables al contenido -->
+                                <RowDefinition Height="Auto"/> <!--titulo-->
+                                <RowDefinition Height="Auto"/> <!--subtitulo-->
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/> 
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <!--titulo-->
+                            <TextBlock Text="Cita Médica" 
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="0" 
+                                       FontSize="40" 
+                                       FontFamily="Montserrat"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,10,0,10"/>
+
+                            <TextBlock Text="Requisitos para agendar su cita médica"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="SemiBold"
+                                       Grid.Row="2" Grid.ColumnSpan="2"
+                                       HorizontalAlignment="Left"
+                                       Margin="10,5,0,5"/>
+
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="20,5" >
+                                <TextBlock Text="• CURP" FontSize="14"/>
+                                <TextBlock Text="• NSS (Número de Seguro Social)" FontSize="14"/>
+                                <TextBlock Text="• Correo Electrónico" FontSize="14"/>
+                                <TextBlock Text="• Estar registrado en la plataforma" FontSize="14"/>
+                            </StackPanel>
+
+                            <TextBlock Text="CURP:" 
+                                       FontWeight="Bold"
+                                       Grid.Row="4" Grid.Column="0" 
+                                       VerticalAlignment="Center"
+                                       Margin="30,5"/>
+                            <TextBox Grid.Row="4" Grid.Column="1" Height="30" Margin="10" TextChanged="TextBox_TextChanged"/>
+
+
+                            <TextBlock Text="Correo Electrónico:" 
+                                       FontWeight="Bold"
+                                       Grid.Row="5" Grid.Column="0" 
+                                       VerticalAlignment="Center"
+                                       Margin="30,10"/>  
+                            <TextBox Grid.Row="5" Grid.Column="2" Height="30" Margin="10"/>
+
+
+                            <Button Content="Continuar" 
+                                    HorizontalAlignment="Right" 
+                                    Width="150" Height="40" 
+                                    Grid.Row="6" Grid.Column="1" 
+                                    FontFamily="Montserrat" 
+                                    Background="Black" 
+                                    Foreground="White" 
+                                    FontSize="14" 
+                                    Cursor="Hand"
+                                    Click="Button_Click">       
+
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                                CornerRadius="15">
+
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"
+                                                              RecognizesAccessKey="True"/>      
+
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
+                            </Button>
+
+                            
+                            
+                            
+                        </Grid>
 
                     </Grid>
 
