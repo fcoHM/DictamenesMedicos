@@ -203,7 +203,7 @@
                                         <Border Background="{TemplateBinding Background}" 
                                             BorderBrush="{TemplateBinding BorderBrush}" 
                                             BorderThickness="{TemplateBinding BorderThickness}" 
-                                            CornerRadius="15">  
+                                            CornerRadius="15">
                                             <!-- Aquí defines cuánto de redondeado -->
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Border>
@@ -218,18 +218,15 @@
 
 
 
-
                     <!-- Contenido principal -->
                     <Grid Background="White" Grid.Column="1">
-                       
-                        
                         <!--sub-grid para contenido principal-->
-                        <Grid Margin="15" Background="LightGray">
-
+                        <Grid Margin="10" Background="LightGray">
                             <Grid.RowDefinitions>
-                                <!-- filas con tamaño auto ajustables al contenido -->
-                                <RowDefinition Height="Auto"/> <!--titulo-->
-                                <RowDefinition Height="Auto"/> <!--subtitulo-->
+                                <RowDefinition Height="Auto"/>
+                                <!--titulo-->
+                                <RowDefinition Height="Auto"/>
+                                <!--subtitulo-->
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -239,98 +236,127 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/> 
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            
+
                             <!--titulo-->
-                            <TextBlock Text="Cita Médica" 
+                            <TextBlock Text="Agenda tu Cita" 
                                        Grid.ColumnSpan="2"
                                        Grid.Row="0" 
                                        FontSize="40" 
                                        FontFamily="Montserrat"
                                        HorizontalAlignment="Center"
-                                       Margin="0,10,0,10"/>
+                                       Margin="0,10,0,0"/>
 
-                            <TextBlock Text="Requisitos para agendar su cita médica"
+                            <TextBlock Text="Aviso de seguridad"
                                        FontSize="16"
                                        FontFamily="Montserrat"
                                        FontWeight="SemiBold"
-                                       Grid.Row="2" Grid.ColumnSpan="2"
+                                       Grid.Row="1" Grid.ColumnSpan="2"
                                        HorizontalAlignment="Left"
-                                       Margin="10,5,0,5"/>
+                                       Margin="30,5,30,5"/>
 
-                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="20,5" >
-                                <TextBlock Text="• CURP" FontSize="14"/>
-                                <TextBlock Text="• NSS (Número de Seguro Social)" FontSize="14"/>
-                                <TextBlock Text="• Correo Electrónico" FontSize="14"/>
-                                <TextBlock Text="• Estar registrado en la plataforma" FontSize="14"/>
-                            </StackPanel>
+                            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="30,5,30,0" TextWrapping="Wrap"
+                                       FontFamily="Montserrat" FontSize="12">
+                                Por motivos de seguridad y para asegurar una atención adecuada, le solicitamos verificar que todos los datos ingresados sean correctos y correspondan a su información oficial. 
+                                Sus datos personales serán tratados bajo estricta confidencialidad y utilizados únicamente para la gestión de su cita médica y seguimiento clínico.
+                            </TextBlock>
 
-                            <TextBlock Text="CURP:" 
+                            <TextBlock Text="Telefono (opcional):" 
+                                       FontWeight="Bold"
+                                       Grid.Row="3" Grid.Column="0" 
+                                       VerticalAlignment="Center"
+                                       Margin="30,10,10,10"/>
+
+
+                            <TextBox Grid.Row="3" Grid.Column="1" 
+                                     Height="30" 
+                                     Margin="0,10,30,10"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Stretch"
+                                     TextChanged="TextBox_TextChanged"/>
+
+                            <TextBlock Text="Correo Electrónico:" 
                                        FontWeight="Bold"
                                        Grid.Row="4" Grid.Column="0" 
                                        VerticalAlignment="Center"
-                                       Margin="30,5"/>
-                            <TextBox Grid.Row="4" Grid.Column="1" Height="30" Margin="10" TextChanged="TextBox_TextChanged"/>
+                                       Margin="30,10,10,10"/>
 
+                            <TextBox Grid.Row="4" Grid.Column="1" 
+                                     Height="30" 
+                                     Margin="0,10,30,10"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Stretch"/>
 
-                            <TextBlock Text="Correo Electrónico:" 
+                            <TextBlock Text="Fecha de cita:"
                                        FontWeight="Bold"
                                        Grid.Row="5" Grid.Column="0" 
                                        VerticalAlignment="Center"
-                                       Margin="30,10"/>  
-                            <TextBox Grid.Row="5" Grid.Column="2" Height="30" Margin="10"/>
-
-
-
-
-
-                            <TextBlock Text="fecha de cita:"
-                                       FontWeight="Bold"
-                                       Grid.Row="6" Grid.Column="0" 
-                                       VerticalAlignment="Center"
-                                       Margin="30,10"/>
-
+                                       Margin="30,10,10,10"/>
 
                             <DatePicker Width="200" 
-                                        Grid.Row="6" Grid.Column="1" 
+                                        Grid.Row="5" Grid.Column="1" 
                                         HorizontalAlignment="Left"
                                         Height="30" 
+                                        VerticalAlignment="Center"
                                         SelectedDate="{Binding FechaSeleccionada}" 
                                         FontFamily="Montserrat" 
                                         FontSize="14" 
-                                        Margin="10"/>
+                                        Margin="0,10,30,10"/>
 
-
-                            <TextBlock Text="Correo Electrónico:" 
+                            <TextBlock Text="Tipo examen:" 
                                        FontWeight="Bold"
-                                       Grid.Row="7" Grid.Column="0" 
+                                       Grid.Row="6" Grid.Column="0" 
                                        VerticalAlignment="Center"
-                                       Margin="30,10"/>
+                                       Margin="30,10,10,10"/>
 
                             <ComboBox Width="200" Height="30" 
-                                      FontFamily="Montserrat" FontSize="14" 
-                                      Grid.Row="7" Grid.Column="1" 
+                                      FontFamily="Montserrat" 
+                                      FontSize="14" 
+                                      Grid.Row="6" Grid.Column="1" 
                                       HorizontalAlignment="Left"
-                                      Margin="10">      
+                                      VerticalAlignment="Center"
+                                      Margin="0,10,30,10">
                                 <ComboBoxItem Content="vista" />
                                 <ComboBoxItem Content="examen general" />
                                 <ComboBoxItem Content="sangre" />
                             </ComboBox>
 
+                            <Button Content="Agendar" 
+                                    HorizontalAlignment="Right"  
+                                    Width="150" Height="40" 
+                                    Grid.Row="7" Grid.Column="1" 
+                                    FontFamily="Montserrat" 
+                                    Background="Black" 
+                                    Foreground="White" 
+                                    FontSize="14" 
+                                    Margin="30,7,30,5"
+                                    Cursor="Hand" Click="Button_Click_1">
 
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                                CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center" 
+                                                              TextElement.Foreground="{TemplateBinding Foreground}"/>   
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
 
+                            </Button>
 
 
                         </Grid>
-
                     </Grid>
 
+
+
+
                 </Grid>
-
-
-
 
             </Grid>
             <!--cierre grid principal-->

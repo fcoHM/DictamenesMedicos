@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DictamenesMedicos.View"
         mc:Ignorable="d"
-        Title="CRUD Paciente" Height="450" Width="811"
+        Title="Registro" Height="450" Width="811"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
@@ -30,7 +30,7 @@
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="CRUD Paciente" 
+                    <TextBlock Text="Registro" 
                                Foreground="White"
                                FontSize="13"
                                FontFamily="Montserrat"
