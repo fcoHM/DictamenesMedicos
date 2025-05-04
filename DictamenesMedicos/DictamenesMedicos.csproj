@@ -68,6 +68,9 @@
     <Compile Include="View\CrudPaciente.xaml.cs">
       <DependentUpon>CrudPaciente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HomePaciente.xaml.cs">
+      <DependentUpon>HomePaciente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\CrudPaciente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePaciente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\advertisement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\advertisement.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
