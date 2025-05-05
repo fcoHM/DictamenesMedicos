@@ -84,6 +84,9 @@
     <Compile Include="View\SolicitudCita.xaml.cs">
       <DependentUpon>SolicitudCita.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VerDictamen.xaml.cs">
+      <DependentUpon>VerDictamen.xaml</DependentUpon>
+    </Compile>
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SolicitudCita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VerDictamen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
