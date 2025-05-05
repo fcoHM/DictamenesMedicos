@@ -38,5 +38,14 @@ namespace DictamenesMedicos.View
         {
 
         }
+
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

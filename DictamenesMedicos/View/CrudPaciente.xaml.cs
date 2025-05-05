@@ -24,7 +24,11 @@ namespace DictamenesMedicos.View
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
 
         }
