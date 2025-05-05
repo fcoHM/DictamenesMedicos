@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="DictamenesMedicos.CustomControls.EmergenteCita"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DictamenesMedicos.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="185" d:DesignWidth="500">
+
+    <Grid Background="white">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" /> <!--titulo-->
+            <RowDefinition Height="Auto"/> <!--paciente-->
+            <RowDefinition Height="Auto"/> <!--Consultorio-->
+            <RowDefinition Height="Auto"/> <!--Fecha-->
+            <RowDefinition Height="Auto"/> <!--boton-->
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        
+       <Border Background="LightGreen"
+               Grid.Row="0" Grid.ColumnSpan="2"
+               Width="auto"
+               Height="auto">
+            <TextBlock Text="Cita agendada"
+                       HorizontalAlignment="Center"
+                       FontFamily="Montserrat"
+                       FontSize="17" Margin="5">
+                
+            </TextBlock>
+       </Border>
+
+        <TextBlock Text="Paciente:"
+                   Grid.Row="1"
+                   HorizontalAlignment="Left"
+                   Margin="40,10,10,0"
+                   FontSize="14" FontFamily="Montserrat"
+                   >
+            
+        </TextBlock>
+        
+        
+        <!-- aqui va una conexio con bd-->
+        <TextBlock Text="user name" 
+                   Grid.Row="1" Grid.Column="2"
+                   HorizontalAlignment="Left"
+                   Margin="10"
+                   FontSize="14" FontFamily="Montserrat">
+            
+        </TextBlock>
+
+
+        <TextBlock Text="Consultorio:"
+                   Grid.Row="2"
+                   HorizontalAlignment="Left"
+                   Margin="40,10,10,0"
+                   FontSize="14" FontFamily="Montserrat">
+            
+        </TextBlock>
+
+
+        <!--aqui lo que se hace es que debe cambiar el nuConsul binding -->
+        <TextBlock Text="nuConsul"
+                   Grid.Row="2" Grid.Column="2"
+                   HorizontalAlignment="Left"
+                   Margin="10"
+                   FontSize="14" FontFamily="Montserrat">
+
+        </TextBlock>
+
+        <TextBlock Text="Fecha Cita:"
+                   Grid.Row="3"
+                   HorizontalAlignment="Left"
+                   Margin="40,10,10,0"
+                   FontSize="14" FontFamily="Montserrat">
+            
+        </TextBlock>
+
+        <!--binding-->
+        <TextBlock Text="fecha"
+           Grid.Row="3" Grid.Column="2"
+           HorizontalAlignment="Left"
+           Margin="10"
+           FontSize="14" FontFamily="Montserrat">
+
+        </TextBlock>
+
+
+        <Button Content="Aceptar" 
+                HorizontalAlignment="Right"  
+                Width="70" Height="30" 
+                Grid.Row="7" Grid.Column="1" 
+                FontFamily="Montserrat" 
+                Background="Black" 
+                Foreground="White" 
+                FontSize="12" 
+                Margin="10">
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}" 
+                    CornerRadius="15">
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center" 
+                                  TextElement.Foreground="{TemplateBinding Foreground}"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+
+    </Grid>
+    
+</UserControl>

@@ -58,6 +58,9 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\EmergenteCita.xaml.cs">
+      <DependentUpon>EmergenteCita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\IUserRepository.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
@@ -70,6 +73,8 @@
     </Compile>
     <Compile Include="View\Dictamen.xaml.cs">
       <DependentUpon>Dictamen.xaml</DependentUpon>
+    <Compile Include="View\HomePaciente.xaml.cs">
+      <DependentUpon>HomePaciente.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -84,6 +89,10 @@
       <DependentUpon>VerDictamen.xaml</DependentUpon>
     </Compile>
     <Page Include="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\EmergenteCita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,7 +112,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
     <Page Include="View\Dictamen.xaml">
+    <Page Include="View\HomePaciente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\advertisement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\advertisement.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

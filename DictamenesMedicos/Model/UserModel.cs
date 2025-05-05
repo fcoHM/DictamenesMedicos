@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DictamenesMedicos.Model
 {
-    internal class UserModel
+    public class UserModel
     {
+        public int NSS { get; set; }
     }
 }
