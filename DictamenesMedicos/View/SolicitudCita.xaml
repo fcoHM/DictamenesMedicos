@@ -342,7 +342,7 @@
                                     Foreground="White" 
                                     FontSize="14" 
                                     Margin="30,7,30,5"
-                                    Cursor="Hand" Click="Button_Click_1">
+                                    Cursor="Hand" Click="btnRegresar_Click">
 
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">

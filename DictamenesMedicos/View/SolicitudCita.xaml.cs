@@ -26,6 +26,10 @@ namespace DictamenesMedicos.View
 
        
 
+        private  void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
  
         private void btnMinimizar_Click(object sender, RoutedEventArgs e) // minimizar app
         {
