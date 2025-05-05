@@ -58,6 +58,9 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\EmergenteCita.xaml.cs">
+      <DependentUpon>EmergenteCita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\IUserRepository.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
@@ -78,6 +81,10 @@
       <DependentUpon>SolicitudCita.xaml</DependentUpon>
     </Compile>
     <Page Include="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\EmergenteCita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
