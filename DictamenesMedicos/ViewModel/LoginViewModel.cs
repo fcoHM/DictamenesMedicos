@@ -31,6 +31,7 @@ namespace DictamenesMedicos.ViewModel
             return true;
         }
         private void ExecuteLoginCommand(object obj) {
+            
 
             // Creamos y Abrimos la nueva ventana
             Application.Current.Dispatcher.Invoke(() =>
