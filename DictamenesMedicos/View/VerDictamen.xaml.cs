@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 namespace DictamenesMedicos.View
 {
     /// <summary>
-    /// Lógica de interacción para CrudPaciente.xaml
+    /// Lógica de interacción para VerDictamen.xaml
     /// </summary>
-    public partial class CrudPaciente : Window
+    public partial class VerDictamen : Window
     {
-        public CrudPaciente()
+        public VerDictamen()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
 
         }
