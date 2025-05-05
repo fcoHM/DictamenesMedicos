@@ -24,28 +24,17 @@ namespace DictamenesMedicos.View
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+       
 
+ 
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e) // minimizar app
+        {
+            WindowState = WindowState.Minimized;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e) // cerrar app
         {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.Close();
         }
     }
 }
