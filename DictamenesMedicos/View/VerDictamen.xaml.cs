@@ -36,5 +36,15 @@ namespace DictamenesMedicos.View
         {
             this.Close();
         }
+
+        private void btnRegresar_Click(object sender, RoutedCommand e)
+        {
+
+        }
+
+        private void btnVer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
