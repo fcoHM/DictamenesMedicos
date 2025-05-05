@@ -198,7 +198,7 @@
                                Margin="0,10,0,10"
                                HorizontalAlignment="Center"/>
 
-                            <Button Content="Regresar" Width="150" Height="40" Grid.Row="2" FontFamily="Montserrat" Background="LightGray" FontSize="14" Cursor="Hand">
+                            <Button Content="Regresar" Width="150" Height="40" Grid.Row="2" FontFamily="Montserrat" Background="LightGray" FontSize="14" Cursor="Hand" Click="Button_Click_1">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
