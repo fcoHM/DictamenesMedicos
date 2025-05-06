@@ -7,7 +7,7 @@
         xmlns:customcontrols="clr-namespace:DictamenesMedicos.CustomControls"
         xmlns:viewModel ="clr-namespace:DictamenesMedicos.ViewModel"
         mc:Ignorable="d"
-        Title="LoginView" Height="600" Width="800"
+        Title="LoginView" Height="450" Width="800"
         
             WindowStyle="None"
     WindowStartupLocation="CenterScreen"
@@ -45,7 +45,7 @@
                     </RowDefinition>
 
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Background="#424242">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition>
 
@@ -61,7 +61,7 @@
                         </ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="LOG IN"
-                           Foreground="#0e1111"
+                           Foreground="White"
                            FontSize="15"
                            FontFamily="Monserrat"
                            Grid.Column="0"

@@ -16,7 +16,7 @@
     <!-- Contenedor principal con bordes -->
 
     <Border CornerRadius="0" >
-        <Border CornerRadius="0" BorderThickness="2" Opacity="1" >
+        <Border CornerRadius="0" BorderThickness="0" Opacity="1" >
             <Border.Background>
                 <SolidColorBrush Color="White" />
                 <!-- Color de fondo de la ventana -->
