@@ -7,10 +7,12 @@
         xmlns:customcontrols="clr-namespace:DictamenesMedicos.CustomControls"
         xmlns:viewModel="clr-namespace:DictamenesMedicos.ViewModel"
         mc:Ignorable="d"
-        Title="SolicitudCita" Height="450" Width="800"
         WindowStyle="None"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="SolicitudCita" Height="450" Width="800">
 
 
     <!--contexto de la ventana-->
@@ -349,7 +351,9 @@
                                     Foreground="White" 
                                     FontSize="14" 
                                     Margin="30,7,30,5"
-                                    Cursor="Hand" Click="btnRegresar_Click">
+                                    Cursor="Hand" Click="btnRegresar_Click"
+                                    Command="{Binding mostrarCommand}"
+                                    CommandParameter="{Binding ElementName=ventaconfirmacion}">
 
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
@@ -367,8 +371,8 @@
                             </Button>
 
 
-                            <Popup x:Name="ventaconfirmacion" IsOpen="False" StaysOpen="false" Placement="Center">
-                                
+                            <Popup x:Name="ventaconfirmacion" IsOpen="{Binding mostrarCommand, Mode=TwoWay}" StaysOpen="false" Placement="Center">
+                                <customcontrols:EmergenteCita/>
                             </Popup>
 
                         </Grid>

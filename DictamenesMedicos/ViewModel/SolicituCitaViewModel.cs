@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using DictamenesMedicos.View;
 
@@ -13,12 +14,14 @@ namespace DictamenesMedicos.ViewModel
     {
 
         public ICommand regresarCommand { get; set; }
+        public ICommand mostrarCommand { get; set;}
 
         //constructor
 
         public SolicituCitaViewModel()
         {
             regresarCommand = new ViewModelCommand(ExecuteRegresarCommand, null);
+            mostrarCommand = new ViewModelCommand(OpenPopUp, null);
         }
 
 
@@ -55,6 +58,17 @@ namespace DictamenesMedicos.ViewModel
         }
 
 
+
+
+        private bool isOpenPopUp = false;
+
+        public void OpenPopUp(object obj) 
+        {
+            if (obj is Popup popup)
+            {
+                popup.IsOpen = true;
+            }
+        }
 
     }
 }
