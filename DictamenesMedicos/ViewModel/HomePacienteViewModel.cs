@@ -16,6 +16,7 @@ namespace DictamenesMedicos.ViewModel
         public ICommand DictamenCommand { get; set; }
         public ICommand MisCitasCommand { get; set; }
         public ICommand SolicitarCitaCommand { get; set; }
+        public ICommand SalirCommand { get; set; }
 
         // Constructor 
         public HomePacienteViewModel()
@@ -23,6 +24,12 @@ namespace DictamenesMedicos.ViewModel
             DictamenCommand = new ViewModelCommand(ExecuteDictamenCommand, null);
             MisCitasCommand = new ViewModelCommand(ExecuteMisCitasCommand, null);
             SolicitarCitaCommand = new ViewModelCommand(ExecuteSolicitarCitaCommand, null);
+            SalirCommand = new ViewModelCommand(ExecuteSalirCommand, null);
+        }
+
+        private void ExecuteSalirCommand(object obj)
+        {
+            Application.Current.Shutdown(); // Morimos la aplicación
         }
 
         private void ExecuteDictamenCommand(object obj)
@@ -49,8 +56,6 @@ namespace DictamenesMedicos.ViewModel
 
         private void ExecuteMisCitasCommand(object obj)
         {
-
-
             // Creamos y Abrimos la nueva ventana
             Application.Current.Dispatcher.Invoke(() =>
             {
