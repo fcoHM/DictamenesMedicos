@@ -352,9 +352,9 @@
                                     FontSize="14" 
                                     Margin="30,7,30,5"
                                     Cursor="Hand" Click="btnRegresar_Click"
-                                    Command="{Binding mostrarCommand}"
+                                    Command="{Binding TogglePopupCommand}" 
                                     CommandParameter="{Binding ElementName=ventaconfirmacion}">
-
+                                        <!--command lleva el llamdado al pop up-->
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
@@ -370,8 +370,9 @@
 
                             </Button>
 
-
-                            <Popup x:Name="ventaconfirmacion" IsOpen="{Binding mostrarCommand, Mode=TwoWay}" StaysOpen="false" Placement="Center">
+                            <!-- pop up -->
+                            <Popup x:Name="MyPopup" 
+                                   IsOpen="{Binding IsPopupOpen, Mode=TwoWay}" Placement="Center">
                                 <customcontrols:EmergenteCita/>
                             </Popup>
 

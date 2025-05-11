@@ -61,6 +61,7 @@
     <Compile Include="CustomControls\EmergenteCita.xaml.cs">
       <DependentUpon>EmergenteCita.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\CitaModel.cs" />
     <Compile Include="Model\IUserRepository.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />

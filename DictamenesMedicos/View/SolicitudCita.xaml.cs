@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DictamenesMedicos.View
 {
@@ -38,7 +39,7 @@ namespace DictamenesMedicos.View
 
         private void btnClose_Click(object sender, RoutedEventArgs e) // cerrar app
         {
-            this.Close();
+            System.Windows.Application.Current.Shutdown(); // Morimos la aplicación
         }
     }
 }
