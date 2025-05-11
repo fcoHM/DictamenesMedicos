@@ -24,13 +24,17 @@ namespace DictamenesMedicos.View
             InitializeComponent();
         }
 
-        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown(); // Morimos la aplicación
         }
     }
 }

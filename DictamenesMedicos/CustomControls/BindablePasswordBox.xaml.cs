@@ -30,7 +30,8 @@ namespace DictamenesMedicos.CustomControls
         public static readonly DependencyProperty PasswordProperty =
             DependencyProperty.Register("Password",
                 typeof(SecureString),
-                typeof(BindablePasswordBox));
+                typeof(BindablePasswordBox),
+                new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         public SecureString Password
         {
@@ -38,9 +39,9 @@ namespace DictamenesMedicos.CustomControls
             set { SetValue(PasswordProperty, value); }
         }
 
-        private void OnPasswordChanged(object sender, EventArgs evento)
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            Password = txtPassword.SecurePassword;
+            SetCurrentValue(PasswordProperty, txtPassword.SecurePassword);
         }
     }
 }
