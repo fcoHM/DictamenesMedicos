@@ -26,7 +26,7 @@ namespace DictamenesMedicos.Model
         public string Calle {  get; set; }
         public string NumeroExterior {  get; set; }
         public string NumeroInterior {  get; set; }
-        public string Descripcion {  get; set; }
+        public string DescripcionUbicacion {  get; set; }
         public int TipoSangre {  get; set; }
         public string EnfermedadesCronicas {  get; set; }
         public string Alergias {  get; set; }

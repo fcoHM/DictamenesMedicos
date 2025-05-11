@@ -190,16 +190,24 @@
 
                                     <!-- Fila 1 -->
                                     <Label Content="Nombre(s)" Grid.Row="0" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.Nombre, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Apellido Paterno" Grid.Row="0" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.ApellidoPaterno, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Apellido Materno" Grid.Row="0" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.ApellidoMaterno, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Sexo" Grid.Row="0" Grid.Column="3" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <ComboBox Grid.Row="1" Grid.Column="3" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11">
+                                    <ComboBox SelectedIndex="{Binding SelectedSexo, Mode=TwoWay}"
+                                              Grid.Row="1" Grid.Column="3" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11">
+                                        <ComboBoxItem Content="No seleccionado"/>
                                         <ComboBoxItem Content="Masculino"/>
                                         <ComboBoxItem Content="Femenino"/>
                                         <ComboBoxItem Content="Otro"/>
@@ -207,16 +215,24 @@
 
                                     <!-- Fila 2 -->
                                     <Label Content="Fecha Nacimiento" Grid.Row="2" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <DatePicker Grid.Row="3" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <DatePicker 
+                                        SelectedDate="{Binding FechaNacimiento, Mode=TwoWay}"
+                                        Grid.Row="3" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Teléfono Fijo" Grid.Row="2" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="3" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.TelefonoFijo, Mode=TwoWay}"
+                                        Grid.Row="3" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Teléfono Móvil" Grid.Row="2" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="3" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.TelefonoMovil, Mode=TwoWay}"
+                                        Grid.Row="3" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
                                     <!-- Fila3 -->
                                     <Label Content="Correo Electrónico" Grid.Row="4" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="3"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.CorreoElectronico, Mode=TwoWay}"
+                                        Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="3"/>
                                 </Grid>
                             </GroupBox>
 
@@ -234,20 +250,25 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- Fila 1 -->
-                                    <Label Content="Username" Grid.Row="0" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <Label Content="Número de Seguridad Social (NSS)" Grid.Row="0" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.NSS, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Contraseña" Grid.Row="0" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <!--<TextBox--> 
+    <!--Text="{Binding Paciente.Password, Mode=TwoWay}"
+    Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>-->    
                                     <customcontrols:BindablePasswordBox
-                                        Password="{Binding Password,
-                                        Mode =TwoWay,
-                                        UpdateSourceTrigger=PropertyChanged}"
-                                        Height="24"
-                                        Margin="2,0,5,0"
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        VerticalAlignment="Top">
-                                    </customcontrols:BindablePasswordBox>
+                                            Password="{Binding Password,
+                                            Mode =TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}"
+                                            Height="24"
+                                            Margin="2,0,5,0"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Top">
+                                        </customcontrols:BindablePasswordBox>
 
                                 </Grid>
                             </GroupBox>
@@ -274,31 +295,47 @@
 
                                     <!-- Fila 1 -->
                                     <Label Content="Código Postal" Grid.Row="0" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.CodigoPostal, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Estado" Grid.Row="0" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.Estado, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Municipio" Grid.Row="0" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.Municipio, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Localidad" Grid.Row="0" Grid.Column="3" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="3" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.Localidad, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="3" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <!-- Fila 2 -->
 
                                     <Label Content="Calle" Grid.Row="2" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="3" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.Calle, Mode=TwoWay}"
+                                        Grid.Row="3" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Número Exterior" Grid.Row="2" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="3" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.NumeroExterior, Mode=TwoWay}"
+                                        Grid.Row="3" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Número Interior" Grid.Row="2" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="3" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.NumeroInterior, Mode=TwoWay}"
+                                        Grid.Row="3" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <!-- Fila 3 -->
                                     <Label Content="Descripción Ubicación" Grid.Row="4" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="4"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.DescripcionUbicacion, Mode=TwoWay}"
+                                        Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="4"/>
                                 </Grid>
                             </GroupBox>
 
@@ -318,7 +355,10 @@
 
                                     <!-- Fila 1 -->
                                     <Label Content="Tipo de Sangre" Grid.Row="0" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11">
+                                    <ComboBox 
+                                        SelectedIndex="{Binding TipoSangre, Mode=TwoWay}"
+                                        Grid.Row="0" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11">
+                                        <ComboBoxItem Content="No Seleccionado"/>
                                         <ComboBoxItem Content="A+"/>
                                         <ComboBoxItem Content="O+"/>
                                         <ComboBoxItem Content="B+"/>
@@ -330,10 +370,14 @@
                                     </ComboBox>
 
                                     <Label Content="Enfermedades Crónicas" Grid.Row="1" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.EnfermedadesCronicas, Mode=TwoWay}"
+                                        Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Alergias" Grid.Row="2" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="2" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <TextBox 
+                                        Text="{Binding Paciente.Alergias, Mode=TwoWay}"
+                                        Grid.Row="2" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
                                 </Grid>
                             </GroupBox>
 
@@ -393,7 +437,7 @@
                                         FontSize="14"
                                         FontFamily="Montserrat"
                                         Cursor="Hand"
-                                        Margin="0,30,0,0">
+                                        Margin="15,30,0,0">
                                     <Button.Style>
                                         <Style TargetType="Button">
                                             <Setter Property="Background" Value="Black"></Setter>
