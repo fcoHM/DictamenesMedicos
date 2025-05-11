@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Security;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using DictamenesMedicos.Model;
 using DictamenesMedicos.Repositories;
 using DictamenesMedicos.View;
 
@@ -19,10 +25,46 @@ namespace DictamenesMedicos.ViewModel
         public ICommand LoginCommand { get; set; }
         public ICommand SignUpCommand { get; set; }
 
+        // Campos
+        private string _nss;
+        private SecureString _password;
+        private string _errorMessage;
+        private UserRepository userRepository;
+
+        public string NSS
+        {
+            get { return _nss; }
+            set { 
+                _nss = value;
+                OnPropertyChanged(nameof(NSS));
+            }
+        }
+
+        public SecureString Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
+            }
+        }
+
 
         // Constructor
         public LoginViewModel()
         {
+            userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             SignUpCommand = new ViewModelCommand(ExecuteSignUpCommand, null);
         }
@@ -31,33 +73,62 @@ namespace DictamenesMedicos.ViewModel
         {
             return true;
         }
-        private void ExecuteLoginCommand(object obj) {
-            
 
-            // Creamos y Abrimos la nueva ventana
-            Application.Current.Dispatcher.Invoke(() =>
+
+        private void ExecuteLoginCommand(object obj)
+        {
+            var isValidUser = userRepository.AuthenticateUser(
+                new NetworkCredential(NSS, Password));
+
+            if (isValidUser)
             {
+                Console.WriteLine("Usuario Valido");
+
+                Thread.CurrentPrincipal = new GenericPrincipal(
+                    new GenericIdentity(NSS), null);
+
+
                 var homePaciente = new View.HomePaciente();
                 homePaciente.Show();
-
-                // Cerrar ventana de login, hay veces que solo es ocultar la ventana, no cerrar
-                foreach (Window window in Application.Current.Windows)
+                // Creamos y Abrimos la nueva ventana
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    if (window is LoginView)
+                    // Cerrar ventana de login, hay veces que solo es ocultar la ventana, no cerrar
+                    foreach (Window window in Application.Current.Windows)
                     {
-                        window.Close();
-                        break;
+                        if (window is LoginView)
+                        {
+                            window.Close();
+                            break;
+                        }
                     }
-                }
-            });
+                });
+            }
+            else
+            {
+                ErrorMessage = "* Invalid username or password";
+            }
+        }
 
+        private string SecureStringToString(SecureString value)
+        {
+            if (value == null) return string.Empty;
+
+            IntPtr bstr = Marshal.SecureStringToBSTR(value);
+            try
+            {
+                return Marshal.PtrToStringBSTR(bstr);
+            }
+            finally
+            {
+                Marshal.ZeroFreeBSTR(bstr);
+            }
         }
 
         private void ExecuteSignUpCommand(object obj)
         {
 
-
-            // Creamos y Abrimos la nueva ventana
+            //Creamos y Abrimos la nueva ventana
             Application.Current.Dispatcher.Invoke(() =>
             {
                 var signUp = new CrudPaciente();
