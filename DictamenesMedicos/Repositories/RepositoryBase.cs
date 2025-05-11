@@ -18,6 +18,12 @@ namespace DictamenesMedicos.Repositories
             "Database=DictamenesMedicos; " +
             "Integrated Security = true";
 
+            // Crear su conexion de string aqui y comentar y descomentar segun la necesiten
+            //_connectionString =
+            //"Server = AQUI_VA_SU_NOMBRE_DEL_SERVER; " +
+            //"Database=DictamenesMedicos; " +
+            //"Integrated Security = true";
+
         }
 
         protected SqlConnection GetConnection()

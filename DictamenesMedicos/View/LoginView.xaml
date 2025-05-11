@@ -14,21 +14,32 @@
     ResizeMode="NoResize"
     Background="Transparent"
     AllowsTransparency="True">
-    
-     <Window.DataContext>
+
+    <Window.DataContext>
         <viewModel:LoginViewModel></viewModel:LoginViewModel>
     </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"></BooleanToVisibilityConverter>
+    </Window.Resources>
+
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay"
+                 Converter="{StaticResource BooleanToVisibility}"></Binding>
+    </Window.Visibility>
 
     <Border CornerRadius="0">
         <!--Para Insertar una imagen-->
         <!--<Border.Background >
             <ImageBrush ImageSource="/Images/imagen.png" Stretch="None" >
-                --><!--<ImageBrush ImageSource="/Images/SXSG_sonic.png" Stretch="None" >--><!--
+                -->
+        <!--<ImageBrush ImageSource="/Images/SXSG_sonic.png" Stretch="None" >-->
+        <!--
 
             </ImageBrush>
         </Border.Background>-->
-        
-        
+
+
         <Border CornerRadius="0" BorderThickness="2" Opacity="1" >
 
             <Border.Background>
@@ -170,7 +181,7 @@
                     </Image>
 
 
-                   <TextBlock Text="Sistema de Dictámenes Médicos"
+                    <TextBlock Text="Sistema de Dictámenes Médicos"
                Foreground="Black"
                FontSize="20"
                FontWeight="Medium"
@@ -179,8 +190,8 @@
 
                     </TextBlock>
 
-                    
-                    <TextBlock Text="Username"
+
+                    <TextBlock Text="Número de Seguridad Social (NSS)"
                Foreground="#0B1215"
                FontWeight="Medium"
                FontFamily="Montserrat"
@@ -190,7 +201,7 @@
                     </TextBlock>
 
                     <TextBox x:Name="txtUser"
-               Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+               Text="{Binding NSS, UpdateSourceTrigger=PropertyChanged}"
                FontFamily="Montserrat"
                FontSize="13"
                FontWeight="Medium"
@@ -251,12 +262,13 @@
 
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="43*"></ColumnDefinition>
+                            <ColumnDefinition Width="107*"/>
+                            <ColumnDefinition Width="150*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Button x:Name="btnLogin"
-                                Grid.Column="1"
+                                Grid.Column="2"
         Command="{Binding LoginCommand}"
         BorderThickness="0"
         Content="LOGIN"
@@ -297,7 +309,7 @@ Foreground="White"
 FontSize="14"
 FontFamily="Montserrat"
 Cursor="Hand"
-Margin="0,15,0,0">
+Margin="0,15,0,0" Grid.ColumnSpan="2">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="#3EB489"></Setter>
@@ -321,7 +333,7 @@ Margin="0,15,0,0">
                         </Button>
                     </Grid>
 
-                    
+
                 </StackPanel>
             </Grid>
         </Border>

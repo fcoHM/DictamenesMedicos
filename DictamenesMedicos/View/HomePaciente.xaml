@@ -200,7 +200,7 @@
                                        VerticalAlignment="Top"
                                        Margin="0,20,0,0"/>
 
-                           <TextBlock Text="Name user"
+                            <TextBlock Text="{Binding NombrePaciente}"
                            Grid.Row="1"
                            Foreground="Black"
                            FontSize="14"
