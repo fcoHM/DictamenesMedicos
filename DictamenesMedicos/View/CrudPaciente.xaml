@@ -3,13 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:customcontrols="clr-namespace:DictamenesMedicos.CustomControls"
+        xmlns:viewModel ="clr-namespace:DictamenesMedicos.ViewModel"
         xmlns:local="clr-namespace:DictamenesMedicos.View"
         mc:Ignorable="d"
-        Title="Registro" Height="450" Width="811"
+        Title="Registro de Paciente" Height="450" Width="811"
         WindowStyle="None"
         Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         AllowsTransparency="True">
-
+    <!--contexto de la ventana-->
+    <Window.DataContext>
+        <viewModel:RegistroPacienteViewModel></viewModel:RegistroPacienteViewModel>
+    </Window.DataContext>
     <Border CornerRadius="0">
         <Border CornerRadius="0" BorderThickness="2" Opacity="1">
             <Border.Background>
@@ -30,7 +37,7 @@
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Registro" 
+                    <TextBlock Text="Registro de Paciente" 
                                Foreground="White"
                                FontSize="13"
                                FontFamily="Montserrat"
@@ -40,12 +47,12 @@
                     <Button x:Name="btnMinimizar" Grid.Column="1"
                             Content="-"
                             Foreground="White"
-                            FontSize="14"
+                            FontSize="16"
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             BorderThickness="0"
-                            Background="#555555"
                             Click="btnMinimizar_Click">
+
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="18" Height="18" CornerRadius="9"
@@ -67,9 +74,9 @@
                     </Button>
 
                     <Button x:Name="btnClose" Grid.Column="2"
-                            Content="×"
+                            Content="x"
                             Foreground="White"
-                            FontSize="14"
+                            FontSize="16"
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             BorderThickness="0"
@@ -102,7 +109,6 @@
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
                     <!-- Panel lateral -->
                     <Grid Background="#5bc6de" Grid.Column="0">
 
@@ -118,26 +124,26 @@
                             <!-- contenido del panel lateral, para agregar algo nuevo crear una nueva fila  -->
 
                             <Image Source="/images/user.png"
-                                            Width="70"
-                                            Height="70"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Top"
-                                            Margin="0,20,0,0"/> 
+                       Width="70"
+                       Height="70"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0,20,0,0"/>
 
                             <TextBlock Text="Name user"
-                                        Grid.Row="1"
-                                        Foreground="Black"
-                                        FontSize="14"
-                                        Margin="0,10,0,10"
-                                        HorizontalAlignment="Center"/>  
+           Grid.Row="1"
+           Foreground="Black"
+           FontSize="14"
+           Margin="0,10,0,10"
+           HorizontalAlignment="Center"/>
 
-                            <Button Content="Regresar" Width="150" Height="40" Grid.Row="2" FontFamily="Montserrat" Background="LightGray" FontSize="14" Cursor="Hand">
+                            <Button Content="Regresar" Width="150" Height="40" Grid.Row="2" FontFamily="Montserrat" Background="LightGray" FontSize="14" VerticalAlignment="Bottom" Cursor="Hand" Command="{Binding regresarCommand}">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
-                                                 BorderBrush="{TemplateBinding BorderBrush}" 
-                                                 BorderThickness="{TemplateBinding BorderThickness}" 
-                                                 CornerRadius="15">
+                                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                                CornerRadius="15">
                                             <!-- Aquí defines cuánto de redondeado -->
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Border>
@@ -150,10 +156,14 @@
 
                     </Grid>
 
+
                     <!-- Contenido con scroll -->
                     <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -196,24 +206,17 @@
                                     </ComboBox>
 
                                     <!-- Fila 2 -->
-                                    <Label Content="Nacionalidad" Grid.Row="2" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="3" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <Label Content="Fecha Nacimiento" Grid.Row="2" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <DatePicker Grid.Row="3" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
-                                    <Label Content="Fecha Nacimiento" Grid.Row="2" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <DatePicker Grid.Row="3" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <Label Content="Teléfono Fijo" Grid.Row="2" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <TextBox Grid.Row="3" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
-                                    <Label Content="Lugar Nacimiento" Grid.Row="2" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <Label Content="Teléfono Móvil" Grid.Row="2" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
                                     <TextBox Grid.Row="3" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
-
-                                    <Label Content="Teléfono Fijo" Grid.Row="4" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
-
-                                    <!-- Fila 3 -->
-                                    <Label Content="Teléfono Móvil" Grid.Row="4" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
-
-                                    <Label Content="Correo Electrónico" Grid.Row="4" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="3"/>
+                                    <!-- Fila3 -->
+                                    <Label Content="Correo Electrónico" Grid.Row="4" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <TextBox Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="3"/>
                                 </Grid>
                             </GroupBox>
 
@@ -231,17 +234,27 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- Fila 1 -->
-                                    <Label Content="Número de Seguro Social (NSS)" Grid.Row="0" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <Label Content="Username" Grid.Row="0" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
                                     <TextBox Grid.Row="1" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <Label Content="Contraseña" Grid.Row="0" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
+                                    <customcontrols:BindablePasswordBox
+                                        Password="{Binding Password,
+                                        Mode =TwoWay,
+                                        UpdateSourceTrigger=PropertyChanged}"
+                                        Height="24"
+                                        Margin="2,0,5,0"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        VerticalAlignment="Top">
+                                    </customcontrols:BindablePasswordBox>
 
                                 </Grid>
                             </GroupBox>
 
-                            <!-- Información Domicilio - 6 filas x 4 columnas -->
-                            <GroupBox Grid.Row="1" Header="Información Domicilio" Margin="0,10,0,5"
+
+                            <!-- Información Domicilio -->
+                            <GroupBox Grid.Row="3" Header="Información Domicilio" Margin="0,12,0,3"
                                       FontWeight="Bold" FontSize="12" Background="LightGray">
                                 <Grid Margin="5">
                                     <Grid.RowDefinitions>
@@ -273,29 +286,24 @@
                                     <TextBox Grid.Row="1" Grid.Column="3" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
                                     <!-- Fila 2 -->
-                                    <Label Content="Tipo de Asentamiento" Grid.Row="2" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+
+                                    <Label Content="Calle" Grid.Row="2" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
                                     <TextBox Grid.Row="3" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
-                                    
-                                    <Label Content="Nombre Asentamiento" Grid.Row="2" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+
+                                    <Label Content="Número Exterior" Grid.Row="2" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
                                     <TextBox Grid.Row="3" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
-                                    <Label Content="Calle" Grid.Row="2" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <Label Content="Número Interior" Grid.Row="2" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
                                     <TextBox Grid.Row="3" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
 
-                                    <Label Content="Número Exterior" Grid.Row="4" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
-
-                                    <Label Content="Número Interior" Grid.Row="4" Grid.Column="1" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11"/>
-
                                     <!-- Fila 3 -->
-                                    <Label Content="Descripción Ubicación" Grid.Row="4" Grid.Column="2" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
-                                    <TextBox Grid.Row="5" Grid.Column="2" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="4"/>
+                                    <Label Content="Descripción Ubicación" Grid.Row="4" Grid.Column="0" Margin="2,5,2,2" FontWeight="Normal" FontSize="11"/>
+                                    <TextBox Grid.Row="5" Grid.Column="0" Margin="2,0,2,5" Height="24" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="4"/>
                                 </Grid>
                             </GroupBox>
 
                             <!-- Información Médica -->
-                            <GroupBox Grid.Row="4" Header="Información Médica" Margin="0,10,0,5"
+                            <GroupBox Grid.Row="4" Header="Información Médica" Margin="0,14,0,1"
                                 FontWeight="Bold" FontSize="12" Background="LightGray">
                                 <Grid Margin="5">
                                     <Grid.RowDefinitions>
@@ -330,34 +338,83 @@
                             </GroupBox>
 
 
-
                             <!-- Botones -->
-                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10">
-                                <Button x:Name="btnDescartar" 
-                                        Content="Descartar" 
-                                        Margin="5,0" 
-                                        Padding="15,3" 
-                                        Background="#FF6E6E" 
-                                        Foreground="White"
+                            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10">
+                                <Grid Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                                <Button x:Name="btnDescartar"
+                                        Grid.Row="5" 
+                                        Grid.Column="1"
+                                        Command="{Binding DescartarCommand}"
+                                        BorderThickness="0"
+                                        Content="Descartar"
+                                        Foreground="Black"
+                                        FontSize="14"
                                         FontFamily="Montserrat"
-                                        FontWeight="Bold"
-                                        FontSize="12"
                                         Cursor="Hand"
-                                        MinWidth="80"
-                                        Height="28"/>
+                                        Margin="0,30,0,0">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="Gray"></Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#EAF6FA"></Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Width="150" Height="25" CornerRadius="15"
+                                                Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                HorizontalAlignment="Center">
+                                                </ContentPresenter>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
 
-                                <Button x:Name="btnGuardar" 
-                                        Content="Guardar" 
-                                        Margin="5,0" 
-                                        Padding="15,3" 
-                                        Background="#5bc6de" 
+                                <Button x:Name="btnGuardar"
+                                        Grid.Row="5" 
+                                        Grid.Column="1"
+                                        Command="{Binding GuardarCommand}"
+                                        BorderThickness="0"
+                                        Content="Guardar"
                                         Foreground="White"
+                                        FontSize="14"
                                         FontFamily="Montserrat"
-                                        FontWeight="Bold"
-                                        FontSize="12"
                                         Cursor="Hand"
-                                        MinWidth="80"
-                                        Height="28"/>
+                                        Margin="0,30,0,0">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="Black"></Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#EAF6FA"></Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Width="150" Height="25" CornerRadius="15"
+                                                Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                HorizontalAlignment="Center">
+                                                </ContentPresenter>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
                             </StackPanel>
                         </Grid>
                     </ScrollViewer>

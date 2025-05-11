@@ -67,6 +67,7 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModel\HomePacienteViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\RegistroPacienteViewModel.cs" />
     <Compile Include="ViewModel\SolicituCitaViewModel.cs" />
     <Compile Include="ViewModel\VerDictamenViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
