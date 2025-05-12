@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -69,7 +70,26 @@ namespace DictamenesMedicos.ViewModel
 
         private void ExecuteSalirCommand(object obj)
         {
-            Application.Current.Shutdown(); // Morimos la aplicación
+            // Quitamos al usuario del hilo principal
+            Thread.CurrentPrincipal = new GenericPrincipal(
+                    new GenericIdentity(string.Empty), null);
+
+            // Nos vamos al login de new
+            var loginView = new View.LoginView();
+            loginView.Show();
+            // Creamos y Abrimos la nueva ventana
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                // Cerrar ventana de login, hay veces que solo es ocultar la ventana, no cerrar
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window is CrudPaciente)
+                    {
+                        window.Close();
+                        break;
+                    }
+                }
+            });
         }
 
         private void ExecuteDictamenCommand(object obj)

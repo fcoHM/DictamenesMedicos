@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using DictamenesMedicos.Auxiliares;
 using DictamenesMedicos.Model;
 using DictamenesMedicos.Repositories;
 using DictamenesMedicos.View;
@@ -71,18 +73,33 @@ namespace DictamenesMedicos.ViewModel
 
         private bool CanExecuteLoginCommand(object obj)
         {
-            return true;
+            bool validData;
+            if (string.IsNullOrWhiteSpace(NSS)
+                || NSS.Length < 3
+                || Password == null
+                || Password.Length < 3)
+                validData = false;
+            else
+                validData = true;
+
+
+            return validData;
         }
 
 
         private void ExecuteLoginCommand(object obj)
         {
+            Password = 
+                SecureStringHasher.ConvertToSecureString(
+                    SecureStringHasher.HashPasswordFromSecureString(Password)
+                    );
+
             var isValidUser = userRepository.AuthenticateUser(
                 new NetworkCredential(NSS, Password));
 
             if (isValidUser)
             {
-                Console.WriteLine("Usuario Valido");
+                //Console.WriteLine("Usuario Valido");
 
                 Thread.CurrentPrincipal = new GenericPrincipal(
                     new GenericIdentity(NSS), null);
@@ -110,21 +127,6 @@ namespace DictamenesMedicos.ViewModel
             }
         }
 
-        private string SecureStringToString(SecureString value)
-        {
-            if (value == null) return string.Empty;
-
-            IntPtr bstr = Marshal.SecureStringToBSTR(value);
-            try
-            {
-                return Marshal.PtrToStringBSTR(bstr);
-            }
-            finally
-            {
-                Marshal.ZeroFreeBSTR(bstr);
-            }
-        }
-
         private void ExecuteSignUpCommand(object obj)
         {
 
@@ -146,5 +148,6 @@ namespace DictamenesMedicos.ViewModel
             });
 
         }
+
     }
 }
