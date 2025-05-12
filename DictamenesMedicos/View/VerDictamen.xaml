@@ -10,6 +10,8 @@
         Title="Ver Dictamen" Height="450" Width="800"
         WindowStyle="None"
         Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         AllowsTransparency="True">
 
     <Window.DataContext>

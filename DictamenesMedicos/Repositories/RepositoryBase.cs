@@ -17,7 +17,7 @@ namespace DictamenesMedicos.Repositories
         public RepositoryBase()
         {
             // Connection. Solo cambiar el nombre de Server
-            _connectionString = ConexionDaniel;
+            _connectionString = conexionFrancisco;
             
 
             // Crear su conexion de string aqui y comentar y descomentar segun la necesiten
