@@ -34,7 +34,17 @@ namespace DictamenesMedicos.View
         // Método para cerrar la ventana
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown(); // Morimos la aplicación
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -12,10 +12,12 @@ namespace DictamenesMedicos.Repositories
         private readonly string _connectionString;
         String conexionFrancisco = "Server = Francisco_HM\\VSGESTION; " + "Database=DictamenesMedicos; " + "Integrated Security = true";
         String ConexionFernando = "Server = LAPTOP-8DIT8R4T\\VSGESTION; " + "Database=DictamenesMedicos; " + "Integrated Security = true";
+        String ConexionDaniel = "Server = LAPTOP-2NELMMPR\\VSGESTION; " + "Database=DictamenesMedicos; " + "Integrated Security = true";
+        String ConexionIan = "Server = MARCOHDZ10-PC\\VSGESTION" + "Database=DictamenesMedicos; " + "Integrated Security = true";
         public RepositoryBase()
         {
             // Connection. Solo cambiar el nombre de Server
-            _connectionString = conexionFrancisco;
+            _connectionString = ConexionDaniel;
             
 
             // Crear su conexion de string aqui y comentar y descomentar segun la necesiten
