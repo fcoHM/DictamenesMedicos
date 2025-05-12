@@ -64,8 +64,10 @@
     <Compile Include="Model\CitaModel.cs" />
     <Compile Include="Model\IUserRepository.cs" />
     <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Repositories\CitaRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="ViewModel\EmegergenteSolitudCitaViewModel.cs" />
     <Compile Include="ViewModel\HomePacienteViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegistroPacienteViewModel.cs" />

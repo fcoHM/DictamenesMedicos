@@ -35,9 +35,12 @@ namespace DictamenesMedicos.CustomControls
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnAceptar(object sender, RoutedEventArgs e)
         {
-
+            if (this.Parent is Popup popup)
+            {
+                popup.IsOpen = false; // Esto actualizará automáticamente IsPopupOpen (gracias al Binding TwoWay)
+            }
         }
     }
 }

@@ -8,19 +8,19 @@ namespace DictamenesMedicos.Model
 {
     public class CitaModel
     {
-        // esto representa  una entidad de tipo Cita
-        public string Id { get; set; } 
-        public string Telefono {  get; set; }
-
-        public string correoElectronico {  get; set; }
-
+        public string Id { get; set; }
+        public string Telefono { get; set; }
+        public string correoElectronico { get; set; }
         public DateTime fechaCita { get; set; }
-
-        public string IdTipoExamen {  get; set; }
-
+        public string IdTipoExamen { get; set; }
         public string IdPaciente { get; set; }
+        public string resultado { get; set; }
+        public string IdDoctor { get; set; } // Añadir esta propiedad
 
-        public string resultado {  get; set; }
+        public CitaModel()
+        {
+            resultado = "Pendiente"; // Valor por defecto
+        }
 
 
     }
