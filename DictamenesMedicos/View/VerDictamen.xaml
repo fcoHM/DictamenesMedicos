@@ -3,12 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:customcontrols="clr-namespace:DictamenesMedicos.CustomControls"
+        xmlns:viewModel ="clr-namespace:DictamenesMedicos.ViewModel"
         xmlns:local="clr-namespace:DictamenesMedicos.View"
         mc:Ignorable="d"
         Title="Ver Dictamen" Height="450" Width="800"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
+
+    <Window.DataContext>
+        <viewModel:VerDictamenViewModel></viewModel:VerDictamenViewModel>
+    </Window.DataContext>
 
     <!-- Contenedor principal con bordes -->
     <Border CornerRadius="0">
@@ -134,12 +140,14 @@
                                     Width="150"
                                     Height="40"
                                     FontFamily="Montserrat"
-                                    Background="#424242"
-                                    Foreground="White"
+                                    Background="LightGray"
+                                    Foreground="Black"
                                     FontSize="14"
                                     HorizontalAlignment="Center"
                                     Margin="0,0,0,20"
-                                    Cursor="Hand">
+                                    Cursor="Hand"
+                                    Click="Button_Click"
+                                     Command="{Binding regresarCommand}">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border Background="{TemplateBinding Background}" 
