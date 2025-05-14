@@ -31,5 +31,15 @@ namespace DictamenesMedicos.View
         {
             Application.Current.Shutdown(); // Morimos la aplicación
         }
+
+        private void btnMisCitas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMisDictamenes_Click()
+        {
+
+        }
     }
 }
