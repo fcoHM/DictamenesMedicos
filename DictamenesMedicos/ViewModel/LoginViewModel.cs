@@ -53,7 +53,7 @@ namespace DictamenesMedicos.ViewModel
         }
 
         public string ErrorMessage
-        {
+          {
             get { return _errorMessage; }
             set
             {

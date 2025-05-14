@@ -130,7 +130,7 @@
                                    HorizontalAlignment="Center"
                                    Margin="0,20,0,10"/>
 
-                            <TextBlock Text="Nombre Usuario"
+                            <TextBlock Text="{Binding NombrePaciente}"
                                        Foreground="Black"
                                        FontSize="14"
                                        HorizontalAlignment="Center"
