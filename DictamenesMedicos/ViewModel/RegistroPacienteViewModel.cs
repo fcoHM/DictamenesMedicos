@@ -19,6 +19,7 @@ namespace DictamenesMedicos.ViewModel
     {
         public ICommand regresarCommand { get; set; }
         public ICommand GuardarCommand { get; set; }
+        public ICommand DescartarCommand { get; set; }
 
 
         // Datos Paciente
@@ -84,6 +85,7 @@ namespace DictamenesMedicos.ViewModel
         {
             regresarCommand = new ViewModelCommand(ExecuteRegresarCommand, null);
             GuardarCommand = new ViewModelCommand(ExecuteGuardarCommand, null);
+            DescartarCommand = new ViewModelCommand(ExecuteDescartarCommand, null);
             _userRepository = new UserRepository();
             SelectedSexo = 0;
             TipoSangre = 0;
@@ -171,6 +173,41 @@ namespace DictamenesMedicos.ViewModel
                 nuevoLogin.Show();
                 ventanaActual?.Close();
             }
+        }
+
+        private void ExecuteDescartarCommand(object obj)
+        {
+            // Reiniciamos el paciente
+            Paciente = new UserModel
+            {
+                Id = Guid.NewGuid().ToString(),
+                Nombre = null,
+                NSS = null,
+                Password = null,
+                ApellidoPaterno = null,
+                ApellidoMaterno = null,
+                Sexo = 1,
+                TelefonoFijo = null,
+                TelefonoMovil = null,
+                CorreoElectronico = null,
+                CodigoPostal = null,
+                Estado = null,
+                Municipio = null,
+                Localidad = null,
+                Calle = null,
+                NumeroExterior = null,
+                NumeroInterior = null,
+                DescripcionUbicacion = null,
+                TipoSangre = 0,
+                EnfermedadesCronicas = null,
+                Alergias = null
+            };
+
+            // Reiniciamos las demás propiedades
+            SelectedSexo = 0;
+            TipoSangre = 0;
+            FechaNacimiento = null;
+            Password = null;
         }
     }
 }
