@@ -119,7 +119,7 @@ namespace DictamenesMedicos.ViewModel
             // Creamos y Abrimos la nueva ventana
             Application.Current.Dispatcher.Invoke(() =>
             {
-                var citas = new SolicitudCita();
+                var citas = new VerCitas();
                 citas.Show();
 
                 // Cerrar ventana de login, hay veces que solo es ocultar la ventana, no cerrar

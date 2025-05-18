@@ -46,5 +46,10 @@ namespace DictamenesMedicos.View
         {
 
         }
+
+        private void dgDictamenes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
