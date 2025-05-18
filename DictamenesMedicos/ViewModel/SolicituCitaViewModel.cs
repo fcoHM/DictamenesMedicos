@@ -195,11 +195,19 @@ namespace DictamenesMedicos.ViewModel
         private void ExecuteEnviarDatosCommand(object obj)
         {
             // 1. Validar datos antes de continuar
-            if (!ValidarDatosCita())
+            if (!ValidarDatosCita()) //valida que no esten vacios y aparte que esten correctos
+            {
+                return;//se sale si algo no esta correcto
+            }
+
+            /*
+              if (!ValidarDatosCita())
             {
                 MessageBox.Show("Por favor complete todos los campos requeridos");
                 return;
             }
+             
+             */
 
             // 2. Crear el modelo de cita con los datos del formulario
             var cita = new CitaModel
@@ -224,10 +232,53 @@ namespace DictamenesMedicos.ViewModel
 
         private bool ValidarDatosCita()
         {
-            return !string.IsNullOrEmpty(CorreoElectronico) &&
-                   FechaSeleccionada.HasValue &&
-                   !string.IsNullOrEmpty(TipoExamenSeleccionado);
-        }
+            // Validar correo electrónico con expresión regular
+            bool correoValido = !string.IsNullOrEmpty(CorreoElectronico) &&
+                               System.Text.RegularExpressions.Regex.IsMatch(
+                                   CorreoElectronico,
+                                   @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
 
+            // Validar teléfono (exactamente 10 dígitos)
+            bool telefonoValido = !string.IsNullOrEmpty(Telefono) &&
+                                 Telefono.Length == 10 &&
+                                 Telefono.All(char.IsDigit);
+
+            // Validar otros campos requeridos
+            bool fechaValida = FechaSeleccionada.HasValue;
+            bool fechaFutura = fechaValida && FechaSeleccionada.Value > DateTime.Now;
+            bool examenValido = !string.IsNullOrEmpty(TipoExamenSeleccionado);
+
+            // Mostrar mensajes específicos para cada error
+            if (!correoValido)
+            {
+                MessageBox.Show("Por favor ingrese un correo electrónico válido");
+                return false;
+            }
+
+            if (!telefonoValido)
+            {
+                MessageBox.Show("El teléfono debe contener exactamente 10 dígitos");
+                return false;
+            }
+
+            if (!fechaValida)
+            {
+                MessageBox.Show("Por favor seleccione una fecha para la cita");
+                return false;
+            }
+            else if (!fechaFutura)
+            {
+                MessageBox.Show("La fecha de la cita debe ser futura");
+                return false;
+            }
+
+            if (!examenValido)
+            {
+                MessageBox.Show("Por favor seleccione un tipo de examen");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

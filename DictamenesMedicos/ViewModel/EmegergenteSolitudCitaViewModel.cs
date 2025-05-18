@@ -17,7 +17,7 @@ namespace DictamenesMedicos.ViewModel
         private readonly UserRepository _userRepository = new UserRepository();
 
         // Modelo de cita
-        public CitaModel Cita { get; }
+        public CitaModel Cita { get; set; }
 
         // Propiedades para la vista
         private string _nombrePaciente;
@@ -110,7 +110,7 @@ namespace DictamenesMedicos.ViewModel
                 // Asignar doctor según tipo de examen
                 // Normalizar entrada
                 var tipo = Cita.IdTipoExamen?.Trim().ToLowerInvariant().Normalize(System.Text.NormalizationForm.FormD);
-               
+
 
                 switch (tipo)
                 {
@@ -135,7 +135,7 @@ namespace DictamenesMedicos.ViewModel
                     Cita.resultado = "Pendiente";
                 }
 
-                
+
 
                 if (_citaRepository.GuardarCita(Cita))
                 {
@@ -184,7 +184,9 @@ namespace DictamenesMedicos.ViewModel
         #endregion
     }
 
-    // Implementación básica de RelayCommand si no la tienes
+
+
+    //permite enlazar (bindear) acciones de la interfaz gráfica con la lógica del ViewModel
     public class RelayCommand : ICommand
     {
         private readonly Action<object> _execute;
@@ -205,5 +207,9 @@ namespace DictamenesMedicos.ViewModel
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
         }
+
     }
+
+
+
 }
