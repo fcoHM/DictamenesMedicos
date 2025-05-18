@@ -202,7 +202,7 @@
                                      HeadersVisibility="Column"
                                      BorderThickness="0"
                                      SelectionMode="Single"
-                                     IsReadOnly="True">
+                                     IsReadOnly="True" SelectionChanged="dgDictamenes_SelectionChanged">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Folio" Binding="{Binding Folio}" Width="*"/>
                                     <DataGridTextColumn Header="Prueba" Binding="{Binding Prueba}" Width="*"/>

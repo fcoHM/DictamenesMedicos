@@ -73,6 +73,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegistroPacienteViewModel.cs" />
     <Compile Include="ViewModel\SolicituCitaViewModel.cs" />
+    <Compile Include="ViewModel\VerCitasViewModel.cs" />
     <Compile Include="ViewModel\VerDictamenViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelCommand.cs" />
@@ -90,6 +91,9 @@
     </Compile>
     <Compile Include="View\SolicitudCita.xaml.cs">
       <DependentUpon>SolicitudCita.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VerCitas.xaml.cs">
+      <DependentUpon>VerCitas.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VerDictamen.xaml.cs">
       <DependentUpon>VerDictamen.xaml</DependentUpon>
@@ -131,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SolicitudCita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VerCitas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
