@@ -50,7 +50,7 @@ namespace DictamenesMedicos.ViewModel
             // Obtener la ventana actual (Registro Paciente)
             var ventanaActual = obj as Window ??
                               Application.Current.Windows
-                                  .OfType<VerDictamen>()
+                                  .OfType<VerCitas>()
                                   .FirstOrDefault();
 
             if (homePaciente != null)
