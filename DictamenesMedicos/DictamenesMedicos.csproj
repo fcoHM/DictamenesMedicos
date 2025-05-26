@@ -56,6 +56,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Auxiliares\SecureStringHasher.cs" />
+    <Compile Include="Auxiliares\Validador.cs" />
+    <Compile Include="Auxiliares\VentanasError.cs" />
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>

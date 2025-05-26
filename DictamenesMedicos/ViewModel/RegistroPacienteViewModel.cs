@@ -121,27 +121,116 @@ namespace DictamenesMedicos.ViewModel
             Paciente.Sexo = SelectedSexo;
             Paciente.FechaNacimiento = FechaNacimiento ?? DateTime.Now;
             Paciente.TipoSangre = TipoSangre;
-            Paciente.Password = SecureStringHasher.HashPasswordFromSecureString(Password);
+            
 
-            // Lo guardamos
-            _userRepository.AddPaciente(Paciente);
-
-            // Nos vamos al login de new
-            var loginView = new View.LoginView();
-            loginView.Show();
-            // Creamos y Abrimos la nueva ventana
-            Application.Current.Dispatcher.Invoke(() =>
+            if (CheckAllData())// esta todo en orden por lo tanto podemos guardar
             {
-                // Cerrar ventana de login, hay veces que solo es ocultar la ventana, no cerrar
-                foreach (Window window in Application.Current.Windows)
+                Paciente.Password = SecureStringHasher.HashPasswordFromSecureString(Password);
+                // Lo guardamos
+                _userRepository.AddPaciente(Paciente);
+
+                // Nos vamos al login de new
+                var loginView = new View.LoginView();
+                loginView.Show();
+                // Creamos y Abrimos la nueva ventana
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    if (window is CrudPaciente)
+                    // Cerrar ventana de login, hay veces que solo es ocultar la ventana, no cerrar
+                    foreach (Window window in Application.Current.Windows)
                     {
-                        window.Close();
-                        break;
+                        if (window is CrudPaciente)
+                        {
+                            window.Close();
+                            break;
+                        }
                     }
-                }
-            });
+                });
+            }
+        }
+
+        private bool CheckAllData() {
+            if (string.IsNullOrEmpty(Paciente.Nombre) || Validador.EsNombreValido(Paciente.Nombre) == false)
+            {
+                VentanasError.ShowErrorVentana("El Nombre no es válido.\nDebe ser mayor a 3 letras ('Juan' o 'Juan José').");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(Paciente.ApellidoPaterno) || Validador.EsApellidoValido(Paciente.ApellidoPaterno) == false)
+            {
+                VentanasError.ShowErrorVentana("El Apellido Paterno no es válido.\nDebe ser mayor a 3 letras ('Nuñez' o ' Fernández de Córdoba').");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(Paciente.ApellidoMaterno) || Validador.EsApellidoValido(Paciente.ApellidoMaterno) == false)
+            {
+                VentanasError.ShowErrorVentana("El Apellido Materno no es válido.\nDebe ser mayor a 3 letras ('Nuñez' o ' Fernández de Córdoba').");
+                return false;
+            }
+            else if (SelectedSexo == 0)
+            {
+                VentanasError.ShowErrorVentana("El Sexo no es válido.\nElige una opción.");
+                return false;
+            }
+            else if (Validador.FechaNacimientoValida(Paciente.FechaNacimiento) == false) // TIENE QUE SER MAYOR A 15 AÑOS
+            {
+                VentanasError.ShowErrorVentana("La Fecha de Nacimiento no es válida.\nEl paciente debe ser mayor a 15 años.");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(Paciente.TelefonoFijo) == false && Validador.EsNumeroTelefonoValido(Paciente.TelefonoFijo) == false)
+            {
+                VentanasError.ShowErrorVentana("El número de Teléfono Fijo no es válido.\nDebe tener solo 10 dígitos (e.g. 4922448987).");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(Paciente.TelefonoMovil) == true || Validador.EsNumeroTelefonoValido(Paciente.TelefonoMovil) == false)
+            {
+                VentanasError.ShowErrorVentana("El número de Teléfono Móvil no es válido.\nDebe tener solo 10 dígitos (e.g. 4922448987).");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(Paciente.CorreoElectronico) == true || Validador.EsCorreoValido(Paciente.CorreoElectronico) == false)
+            {
+                VentanasError.ShowErrorVentana("El Correo no es válido.\nE.g. example.ex_ex@example.com");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(Paciente.NSS) == true || Validador.EsNSSValido(Paciente.NSS) == false)
+            {
+                VentanasError.ShowErrorVentana("El Número de Seguridad Social no es válido.\nDebe contener 11 digitos.");
+                return false;
+            }
+            else if (Validador.EsPasswordValida(Password) == false)
+            {
+                VentanasError.ShowErrorVentana("La Contraseña es inválida.\nDebe ser mayor o igual a 8 caracteres.");
+                return false;
+            }
+            else if (Validador.EstaVacia(Paciente.CodigoPostal) == true || Validador.EsCodigoPostalValido(Paciente.CodigoPostal) == false)
+            {
+                VentanasError.ShowErrorVentana("El Código Postal es inválido.\nDebe ser de 5 digitos.");
+                return false;
+            }
+            else if (Validador.EstaVacia(Paciente.Estado) == true)
+            {
+                VentanasError.ShowErrorVentana("El Estado es inválido.");
+                return false;
+            }
+            else if (Validador.EstaVacia(Paciente.Municipio) == true)
+            {
+                VentanasError.ShowErrorVentana("El Municipio es inválido.");
+                return false;
+            }
+            else if (Validador.EstaVacia(Paciente.Localidad) == true)
+            {
+                VentanasError.ShowErrorVentana("La Localidad es inválida.");
+                return false;
+            }
+            else if (Validador.EstaVacia(Paciente.Calle) == true)
+            {
+                VentanasError.ShowErrorVentana("La Calle es inválida.");
+                return false;
+            }
+            else if (Validador.EstaVacia(Paciente.NumeroExterior) == true)
+            {
+                VentanasError.ShowErrorVentana("El Número Exterior es inválido.");
+                return false;
+            }
+
+            else { return true; }
         }
 
         //metodo para 
